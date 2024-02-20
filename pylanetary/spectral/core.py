@@ -516,7 +516,7 @@ class SpectralCube:
   
   ###############################################################################
   
-  def fit_data(self, datas, fit_type, outfile, initial_fit_guess = None, RMS = None, SN = None):
+  def fit_data(self, datas, fit_type, outfile, initial_fit_guess = None, RMS = None, SN = 3):
     '''
     Calculate the best fit for the spectra at each pixel.
     
@@ -536,9 +536,6 @@ class SpectralCube:
           The Signal to noise ratio minimum, which is used to mask out noisy data. Any pixel with a S/N ratio lower than this calue will not be fit. Default is value is 1. 
     
     '''
-    
-    if SN == None:
-      SN = 1
     
     picklefile = open(outfile+'.pickle', 'wb')
     print('Numerical results will be saved in the '+outfile+'.pickle file')
